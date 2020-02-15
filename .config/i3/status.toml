@@ -1,0 +1,23 @@
+theme = "slick"
+icons = "awesome"
+
+[[block]]
+block = "pacman"
+interval = 10
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "music"
+buttons = ["play"]
+
+[[block]]
+block = "custom"
+command = "curl 'wttr.in/Turku?format=%c+%t'"
+interval = 3600
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %I:%M %p"

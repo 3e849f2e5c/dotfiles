@@ -1,0 +1,2 @@
+#!/bin/bash
+yay -Ssq $1 | fzf --layout=reverse --bind 'enter:execute(yay -Si {} | less)'
