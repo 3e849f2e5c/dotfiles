@@ -1,0 +1,78 @@
+# For the benefit of emacs users: -*- shell-script -*-
+#
+#  _ _____ _     _            _
+# (_)___ /| |__ | | ___   ___| | _____
+# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
+# | |___) | |_) | | (_) | (__|   <\__ \
+# |_|____/|_.__/|_|\___/ \___|_|\_\___/
+
+command=~/.config/i3blocks/blocks/$BLOCK_NAME/$BLOCK_NAME
+align=center
+separator=true
+color=#ffffff
+separator_block_width=20
+markup=pango
+
+[mediaplayer]
+command=playerctl metadata --format "{{ artist }} - {{ title }}"
+interval=2
+label=<span color="#a9e185"> </span>
+
+[arch-update]
+command=checkupdates | wc -l
+interval=once
+label=<span color="#1793D1"> </span>
+
+[new-vpn]
+command=~/.config/i3blocks/blocks/nm-vpn/nm-vpn
+interval=1
+label=<span color="#8be9fd"> </span>
+
+[fcitx_keyboard]
+command=~/.config/i3blocks/blocks/mozc_mode/mozc_mode
+label=<span color="#cc294c"> </span>
+interval=persist
+MOZC_DISPLAY_MODE=0
+MOZC_DISPLAY_ROMAJI=0
+min_width=" あ"
+
+[cpu_usage]
+command=~/.config/i3blocks/blocks/cpu_usage/cpu_usage
+interval=2
+label=<span color="#8be9fd"> </span>
+min_width= 10.00%
+
+[cpu-temperature]
+command=~/.config/i3blocks/blocks/temperature/temperature
+interval=2
+SENSOR_CHIP="coretemp-isa-0000"
+label=<span color="#8be9fd"> </span>
+
+[memory]
+command=~/.config/i3blocks/blocks/memory/memory
+interval=2
+label=<span color="#a9e185"> </span>
+
+[volume]
+command=pulseaudio-ctl full-status | awk '{ printf "%i%\n", $1 }'
+interval=2
+label=<span color="#ff79c6"> </span>
+
+[time]
+command=date '+%I:%M %p'
+interval=1
+label=<span color="#ffb86c"> </span>
+
+[date]
+command=date '+%a %e'
+interval=60
+label=<span color="#8be9fd"> </span>
+
+[shutdown_menu]
+full_text=<span color="#a9e185"></span>
+command=~/.config/i3blocks/blocks/shutdown_menu/shutdown_menu
+ROFI_TEXT=Menu:
+ROFI_OPTIONS=-no-config -location 5 -yoffset -25 -width 5 -xoffset -20 -bw 0 -border 0 -theme ~/.config/rofi/menu.rasi
+ENABLE_CONFIRMATIONS=true
+LAUNCHER=rofi
+LOCKSCRIPT=betterlockscreen -l dimblur
