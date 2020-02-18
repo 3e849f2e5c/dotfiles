@@ -250,6 +250,7 @@ for_window [class="^jetbrains.*$" title="win0"] floating enable
 for_window [class="^Caja$"] floating enable
 for_window [class="^jetbrains-toolbox$"] floating enable
 for_window [class="^Virt-manager$"] floating enable
+for_window [class="^feh$"] floating enable
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -304,3 +305,6 @@ exec --no-startup-id lxpolkit
 
 # light locker
 exec --no-startup-id light-locker
+
+# clipboard manager
+exec --no-startup-id autocutsel
