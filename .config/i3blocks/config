@@ -29,7 +29,7 @@ interval=1
 label=<span color="#8be9fd"> </span>
 
 [fcitx_keyboard]
-command=~/.config/i3blocks/blocks/mozc_mode/mozc_mode
+command=~/.config/i3blocks/mozc_status
 label=<span color="#cc294c"> </span>
 interval=persist
 MOZC_DISPLAY_MODE=0
