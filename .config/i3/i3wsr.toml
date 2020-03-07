@@ -26,6 +26,7 @@ vrcapiary = ""
 jetbrains-toolbox = ""
 
 [aliases]
+Alacritty = "st"
 vrcapiary = "VRCApiary"
 streamlink-twitch-gui = "Twitch"
 steam_app_438100 = "VRChat"
