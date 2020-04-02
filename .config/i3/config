@@ -265,6 +265,7 @@ exec --no-startup-id setxkbmap jp
 
 # Screenshot
 bindsym Print exec --no-startup-id ~/scripts/screenshot.sh
+bindsym Shift+Print exec --no-startup-id ~/scripts/screenshot.sh
 
 # i3 gaps
 gaps inner 8
@@ -305,6 +306,3 @@ exec --no-startup-id lxpolkit
 
 # light locker
 exec --no-startup-id light-locker
-
-# clipboard manager
-exec --no-startup-id autocutsel
