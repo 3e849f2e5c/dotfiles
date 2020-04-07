@@ -27,6 +27,7 @@ steam_app_438100 = ""
 steam_app_39210 = ""
 vrcapiary = ""
 jetbrains-toolbox = ""
+ranger = ""
 
 [aliases]
 Alacritty = "st"
@@ -49,3 +50,4 @@ jetbrains-goland = "GoLand"
 jetbrains-clion = "CLion"
 jetbrains-idea = "IntelliJ IDEA"
 jetbrains-webstorm = "WebStorm"
+ranger = "Ranger"
