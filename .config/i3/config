@@ -260,7 +260,7 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-bindsym KP_Insert scratchpad show
+bindsym KP_Begin scratchpad show
 
 # Keyboard
 exec --no-startup-id setxkbmap jp
