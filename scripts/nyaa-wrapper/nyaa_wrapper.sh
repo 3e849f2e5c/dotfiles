@@ -67,7 +67,7 @@ if [ $? -eq 0 ]; then
 		--save-path="${QBITTORRENT_SAVE_PATH}" \
 		--skip-dialog=true \
 		--category="${QBITTORRENT_CATEGORY}" \
-		$NYAA_MAGNET_URI
+		"${NYAA_MAGNET_URI}"
 
 	unset QBITTORRENT_SAVE_PATH
 else

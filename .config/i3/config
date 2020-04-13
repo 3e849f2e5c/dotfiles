@@ -253,6 +253,8 @@ for_window [class="^Virt-manager$"] floating enable
 for_window [class="^feh$"] floating enable
 for_window [class="^ranger$"] floating enable
 for_window [class="^mpv$"] floating enable
+for_window [class="^net-runelite-client-RuneLite$"] floating enable
+for_window [class="^net-runelite-launcher-Launcher$"] floating enable
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
