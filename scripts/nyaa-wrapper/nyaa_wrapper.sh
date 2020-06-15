@@ -9,7 +9,7 @@ ANIME_SAVE_PATH="/run/media/aneko/AnimeShit Mk3/アニメ"
 QBITTORRENT_CATEGORY="Anime"
 
 # Decode the magnet url using Python
-urldecode() {
+function urldecode() {
 	echo "${1}" | python3 -c \
 	"import sys; \
 	from urllib.parse import unquote; \
@@ -17,7 +17,7 @@ urldecode() {
 }
 
 # Convert the filename into an anime title
-parsetitle() {
+function parsetitle() {
 	# Decode the URI
 	MAGNET_DECODED=$(urldecode "${1}")
 

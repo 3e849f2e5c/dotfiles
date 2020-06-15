@@ -120,6 +120,7 @@ alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
+alias picom='picom --experimental-backends'
 
 # if [ "$TMUX" = "" ]; then tmux; fi
 

@@ -34,10 +34,14 @@ play_metoo() {
 }
 
 case "${APPLICATION}" in
+
   # RuneScape notifications
   "RuneLite" )
     case "${SUMMARY}" in
-      *"Feeding interrupted!"* )
+      *"Feeding interrupted! Damaged"* )
+        play_when
+      ;;
+      *"Feeding interrupted! Brazier"* )
         play_when
       ;;
       *"Fletching interrupted!"* )
@@ -47,6 +51,7 @@ case "${APPLICATION}" in
         play_metoo
 	  esac
   ;;
+
   # Everything else
   * )
     play_metoo
