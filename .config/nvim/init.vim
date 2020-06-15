@@ -8,7 +8,7 @@ Plug 'arakashic/chromatica.nvim'                    " Clangd based syntax highli
 Plug 'ryanoasis/vim-devicons'                       " Unicode icons
 Plug 'chrisbra/Colorizer'                           " Colorize hex colors
 Plug 'tpope/vim-fugitive'                           " git integration
-Plug 'turbio/bracey.vim'							" HTML5 live editing
+Plug 'turbio/bracey.vim'                            " HTML5 live editing
 Plug 'sheerun/vim-polyglot'                         " Language packs
 Plug 'zivyangll/git-blame.vim'                      " Inline git blame
 Plug 'tpope/vim-surround'                           " Surround quotes
@@ -55,6 +55,7 @@ let g:airline_powerline_fonts = 1              " user powerline fonts
 let g:rainbow_active = 1                       " enable rainbow braces everywhere
 
 " startify
+" TODO idk something else here
 let s:header = [
 			\ '             ▗                  ▗            ▖  ',
 			\ '  ▗           ▌      ▚           ▌ ▄     ▚   ▐  ',
@@ -83,6 +84,7 @@ nnoremap <C-e> :NERDTreeToggle<CR>
 
 " bind Ctrl+S to save in insert mode
 inoremap <C-s> <esc>:w<CR>
+nnoremap <C-s> :w<CR>
 
 " bind Shift+Left/Right to switch buffers
 nmap <S-Right> :bn<CR>
