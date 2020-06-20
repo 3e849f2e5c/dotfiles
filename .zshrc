@@ -121,6 +121,7 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 alias picom='picom --experimental-backends'
+alias clearall="clear; printf '\033[3J'"
 
 # if [ "$TMUX" = "" ]; then tmux; fi
 

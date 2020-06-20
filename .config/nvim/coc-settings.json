@@ -1,4 +1,5 @@
 {
 	"git.addGBlameToVirtualText": true,
-	"git.showCommitInFloating": true
+	"git.showCommitInFloating": true,
+	"template.templatesDirectory": "~/.config/nvim/templates/"
 }
