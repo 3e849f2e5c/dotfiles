@@ -120,7 +120,6 @@ alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
-alias picom='picom --experimental-backends'
 alias clearall="clear; printf '\033[3J'"
 
 # if [ "$TMUX" = "" ]; then tmux; fi
@@ -140,8 +139,11 @@ POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0BA '
 
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND=black
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND=006
+
 POWERLEVEL9K_SHORTEN_STRATEGY=Default
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bg=#44475a"
 
 zshcache_time="$(date +%s%N)"
 

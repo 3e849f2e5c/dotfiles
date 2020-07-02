@@ -1,5 +1,9 @@
 {
 	"git.addGBlameToVirtualText": true,
 	"git.showCommitInFloating": true,
-	"template.templatesDirectory": "~/.config/nvim/templates/"
+	"template.templatesDirectory": "~/.config/nvim/templates/",
+	"clangd.semanticHighlighting": true,
+	"tabnine.disable_file_regex": [
+		"[.]cs$",
+	 ]
 }

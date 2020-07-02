@@ -200,41 +200,32 @@ bindsym $mod+t exec rofi -show run
 # finds out, if avai}
 #
 
-#set $highlight-color     #B2535B
-#set $bg-color            #222222
-#set $inactive-bg-color   #111111
-#set $text-color          #f3f4f5
-#set $inactive-text-color #676E7D
-#set $urgent-bg-color     #E53935
-
 bar {
     font pango:Hack Nerd Font 12
     position bottom
     status_command i3blocks
-    colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
+
+	colors {
+		background #282A36
+		statusline #F8F8F2
+	    separator  #44475A
+
+		focused_workspace  #44475A #44475A #F8F8F2
+	    active_workspace   #282A36 #44475A #F8F8F2
+		inactive_workspace #282A36 #282A36 #BFBFBF
+	    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+		binding_mode       #FF5555 #FF5555 #F8F8F2
+  }
 }
 
-# window colors
-#                       border              background         text                 indicator
-#client.focused          $highlight-color    $highlight-color   $text-color          #00ff00
-#client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-#client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-#client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+# class                 border  bground text    indicator child_border
+client.focused          #bd93f9 #bd93f9 #F8F8F2 #ff79c6   #bd93f9
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-client.focused          #ff00e4 #800080 #ffffff #800080   #ff00e4
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #ffffff
+client.background       #F8F8F2
 
 for_window [class="^Steam$" title="^Friends List$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
@@ -252,7 +243,9 @@ for_window [class="^jetbrains-toolbox$"] floating enable
 for_window [class="^Virt-manager$"] floating enable
 for_window [class="^feh$"] floating enable
 for_window [class="^ranger$"] floating enable
-for_window [class="^mpv$"] floating enable
+#for_window [class="^mpv$"] floating enable
+for_window [class="^chatterino$" title="^Select a channel to join$"] floating enable
+for_window [class="^chatterino$" title="^Chatterino Settings$"] floating enable
 for_window [class="^net-runelite-client-RuneLite$"] floating enable
 for_window [class="^net-runelite-launcher-Launcher$"] floating enable
 
@@ -282,7 +275,7 @@ for_window [title=".*"] border pixel 2
 exec --no-startup-id ~/.fehbg
 
 # Compositor
-exec_always --no-startup-id picom --experimental-backends
+exec --no-startup-id picom
 
 # i3wsr
 exec_always --no-startup-id /usr/bin/i3wsr --icons awesome --config ~/.config/i3/i3wsr.toml
