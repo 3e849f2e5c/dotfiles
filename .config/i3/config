@@ -248,6 +248,9 @@ for_window [class="^chatterino$" title="^Select a channel to join$"] floating en
 for_window [class="^chatterino$" title="^Chatterino Settings$"] floating enable
 for_window [class="^net-runelite-client-RuneLite$"] floating enable
 for_window [class="^net-runelite-launcher-Launcher$"] floating enable
+for_window [class="^Vulkan Test$"] floating enable
+for_window [class="^minecraft-launcher$"] floating enable
+for_window [class="^looking-glass-client$"] floating enable
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -297,6 +300,8 @@ exec --no-startup-id nm-applet
 
 # disable screen blanking
 exec --no-startup-id xset s off
+
+exec --no-startup-id xset -dpms
 
 # polkit
 exec --no-startup-id lxpolkit

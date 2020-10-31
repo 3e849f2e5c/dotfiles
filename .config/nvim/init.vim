@@ -21,6 +21,9 @@ Plug 'luochen1990/rainbow'                          " Rainbow braces
 Plug 'idanarye/vim-vebugger'                        " Debugger
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}          " Async program execution
 Plug 'jackguo380/vim-lsp-cxx-highlight'             " Sematic highlighting
+Plug 'rbgrouleff/bclose.vim'                        " Dependency for ranger.vim
+Plug 'francoiscabrol/ranger.vim'                    " Ranger integration
+Plug 'junegunn/fzf.vim'                             " Fuzzy search
 
 call plug#end()
 
@@ -73,8 +76,14 @@ let g:rainbow_conf = {
 \		},
 \}
 
+
+" Ranger + NERDTree 
+let g:NERDTreeHijackNetrw = 0
+let g:ranger_replace_netrw = 1
+
 " Coc
 let g:coc_snippet_next = '<Tab>'
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " auto-pairs
 let g:AutoPairsShortcutToggle = '<C-p>'
@@ -99,6 +108,14 @@ endfunction
 
 let g:startify_custom_header = Startify_center(s:header)
 
+let g:startify_session_dir = "~/.vim/sessions/"
+
+let g:startify_lists = [
+          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'files',     'header': ['   Files']           },
+          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+          \ ]
+
 " ----------------------------- "
 " |    FUNCTIONS & ALIASES    | "
 " ----------------------------- "
@@ -110,11 +127,65 @@ cnoreabbrev DisableSpell set nospell
 " |    KEYBINDS     | "
 " ------------------- "
 
-" Mouse click
+" Vim
+
+source ~/.config/nvim/monkeyterminal.vim
+
+
+" Map leader key to space
+let mapleader = "\<Space>"
+
+" Clang switch between header and source with leader s
+nnoremap <Leader>s :CocCommand clangd.switchSourceHeader<CR>
+
+" Format selection
+xnoremap <Leader>i  <Plug>(coc-format-selected)
+nnoremap <Leader>i  <Plug>(coc-format-selected)
+vnoremap <Leader>i  <Plug>(coc-format-selected)
+
+" Refactor word under cursor
+nnoremap <Leader>rn <Plug>(coc-rename)
+
+" Perform code action under cursor
+nnoremap <Leader>a :call CocActionAsync('codeAction', '')<CR>
+
+" Format entire file
+nnoremap <A-l>            :call CocAction('format')<CR>
+command! -nargs=0 Format  :call CocAction('format')
+
+" Organize imports
+nnoremap <A-o>            :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+command! -nargs=0 Imports :call CocAction('runCommand', 'editor.action.organizeImport')
+
+" Paste file template
+nnoremap <Leader>ya       :call CocAction('runCommand', 'template.templateTop')<CR>
+nnoremap <Leader>yas      :CocList templates<CR>
+
+" Toggle color highlights
+nnoremap <Leader>c :CololorHighlight<CR>
+
+" Documentation popup
+nnoremap <silent>K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Explore
 nnoremap <C-e> :NERDTreeToggle<CR>
-nmap <C-t> :TlistToggle<CR>
+nnoremap <C-t> :TlistToggle<CR>
+nnoremap <Leader>e :Files<CR>
+nnoremap <Leader>l :BLines<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>h :History<CR>
+nnoremap <leader>f :Rg<CR>
+
+let g:ranger_map_keys = 0
+nnoremap <A-e> :Ranger<CR>
 
 " Saving
 inoremap <C-s> <esc>:w<CR>
@@ -128,7 +199,7 @@ nmap <S-Left> :bp<CR>
 nnoremap <C-d> :VBGtoggleBreakpointThisLine<CR>
 map <F8> :VBGstepOver<CR>
 map <F9> :VBGcontinue<CR>
-map <F5> :make --always-make<CR>
+map <F5> :make<CR>
 map <F10> :VBGstartGDB ./a.out<CR>
 map <F7> :VBGevalWordUnderCursor<CR>
 map <S-F7> :VBGeval
