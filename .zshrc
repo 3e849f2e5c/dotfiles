@@ -112,7 +112,6 @@ alias gitconfig='/usr/bin/git --git-dir=/home/aneko/.cfg/ --work-tree=/home/anek
 alias pls='sudo'
 alias genamae='dd if=/dev/urandom bs=3 count=10 >> /dev/null 2>&1| md5sum | cut -c1-12'
 alias genimg='curl "http://www.gravatar.com/avatar/$(genamae)/?s=512&d=identicon&r=PG" > /tmp/identicon.png'
-alias restartvpn='sudo systemctl restart openvpn-client@client.service'
 alias trash='rmtrash'
 alias cal='cal --monday'
 alias ls='lsd'
@@ -145,6 +144,8 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bg=#44475a"
 
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
 zshcache_time="$(date +%s%N)"
 
 autoload -Uz add-zsh-hook
@@ -160,7 +161,3 @@ rehash_precmd() {
 }
 
 add-zsh-hook -Uz precmd rehash_precmd
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-
-eval $(thefuck --alias)

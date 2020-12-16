@@ -18,12 +18,12 @@ Plug 'vim-scripts/taglist.vim'                      " Tag list
 Plug 'mileszs/ack.vim'                              " Global search
 Plug 'mhinz/vim-startify'                           " Fancy start screen
 Plug 'luochen1990/rainbow'                          " Rainbow braces
-Plug 'idanarye/vim-vebugger'                        " Debugger
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}          " Async program execution
 Plug 'jackguo380/vim-lsp-cxx-highlight'             " Sematic highlighting
 Plug 'rbgrouleff/bclose.vim'                        " Dependency for ranger.vim
 Plug 'francoiscabrol/ranger.vim'                    " Ranger integration
 Plug 'junegunn/fzf.vim'                             " Fuzzy search
+Plug 'puremourning/vimspector'						" Debugger
 
 call plug#end()
 
@@ -196,10 +196,16 @@ nmap <S-Right> :bn<CR>
 nmap <S-Left> :bp<CR>
 
 " Debugger
-nnoremap <C-d> :VBGtoggleBreakpointThisLine<CR>
-map <F8> :VBGstepOver<CR>
-map <F9> :VBGcontinue<CR>
-map <F5> :make<CR>
-map <F10> :VBGstartGDB ./a.out<CR>
-map <F7> :VBGevalWordUnderCursor<CR>
-map <S-F7> :VBGeval
+nnoremap <C-d> :call vimspector#ToggleBreakpoint()<CR>
+
+map <F5>        :make<CR>
+map <F6>        :call vimspector#RunToCursor()<CR>
+map <Leader>F6  :call vimspector#StepOut()<CR>
+map <F7>        :call vimspector#StepInto()<CR>
+map <F8>        :call vimspector#StepOver()<CR>
+
+map <F9>        :call vimspector#Continue()<CR>
+map <F10>       :call vimspector#Pause()<CR>
+map <F11>       :call vimspector#ClearBreakpoints()<CR>
+map <F12>       :call vimspector#Stop()<CR>
+map <Leader>F12 :VimspectorReset<CR>
