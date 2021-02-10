@@ -47,9 +47,6 @@ super + shift + space
 super + f
 	bspc node -t "~fullscreen"
 
-super + l
-	light-locker-command -l
-
 # cancel the preselection for the focused node
 super + Escape
  	bspc node -p cancel

@@ -24,6 +24,11 @@ Plug 'rbgrouleff/bclose.vim'                        " Dependency for ranger.vim
 Plug 'francoiscabrol/ranger.vim'                    " Ranger integration
 Plug 'junegunn/fzf.vim'                             " Fuzzy search
 Plug 'puremourning/vimspector'						" Debugger
+Plug 'vim-scripts/ShaderHighLight'                  " Shader language syntax
+Plug 'TaDaa/vimade'                                 " Fade inactive buffers
+Plug 'rhysd/git-messenger.vim'                      " Show commit message under cursor
+Plug 'brooth/far.vim'                               " Global find and replace
+Plug 'liuchengxu/vim-which-key'                     " List keybinds in a popup
 
 call plug#end()
 
@@ -76,6 +81,11 @@ let g:rainbow_conf = {
 \		},
 \}
 
+" Vimade
+
+let g:vimade = {
+  \ "fadelevel": 0.6,
+\}
 
 " Ranger + NERDTree 
 let g:NERDTreeHijackNetrw = 0
@@ -129,11 +139,13 @@ cnoreabbrev DisableSpell set nospell
 
 " Vim
 
-source ~/.config/nvim/monkeyterminal.vim
-
-
 " Map leader key to space
 let mapleader = "\<Space>"
+
+source ~/.config/nvim/monkeyterminal.vim
+
+" which key popup
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " Clang switch between header and source with leader s
 nnoremap <Leader>s :CocCommand clangd.switchSourceHeader<CR>

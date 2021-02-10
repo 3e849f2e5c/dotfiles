@@ -110,7 +110,7 @@ alias paclist="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bi
 alias pacsearch="pacman -Ssq | fzf --preview 'pacman -Si {}' --layout=reverse --bind 'enter:execute(pacman -Si {} | less)'"
 alias gitconfig='/usr/bin/git --git-dir=/home/aneko/.cfg/ --work-tree=/home/aneko'
 alias pls='sudo'
-alias genamae='dd if=/dev/urandom bs=3 count=10 >> /dev/null 2>&1| md5sum | cut -c1-12'
+alias genamae='dd if=/dev/urandom bs=3 count=10 >> /dev/null 2>&1| md5sum | cut -c1-10'
 alias genimg='curl "http://www.gravatar.com/avatar/$(genamae)/?s=512&d=identicon&r=PG" > /tmp/identicon.png'
 alias trash='rmtrash'
 alias cal='cal --monday'
