@@ -22,8 +22,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-APPLICATION="${2}"
+APPLICATION="${1}"
+TITLE="${2}"
 SUMMARY="${3}"
+
+#echo "${1} -|- ${APPLICATION} -|- ${SUMMARY} -|- ${4}" >> ~/scripts/log.txt
 
 play_when() {
 	paplay ~/scripts/when.ogg
@@ -50,6 +53,9 @@ case "${APPLICATION}" in
       * )
         play_metoo
 	  esac
+  ;;
+
+  "Slack" )
   ;;
 
   # Everything else
