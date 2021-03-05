@@ -54,6 +54,18 @@ super + Escape
 super + space
     bspc node "newest.focused.local" -n "newest.!automatic.local"
 
+# expand the tiled space in the given direction
+super + alt + {Left,Down,Up,Right}
+	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+
+# contract the tiled space in the given direction
+super + alt + shift + {Left,Down,Up,Right}
+	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+
+# reset all node sizes to the default
+super + alt + space
+	bspc node @/ -E
+
 super + XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +10%
 
