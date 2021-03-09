@@ -29,6 +29,8 @@ Plug 'TaDaa/vimade'                                 " Fade inactive buffers
 Plug 'rhysd/git-messenger.vim'                      " Show commit message under cursor
 Plug 'brooth/far.vim'                               " Global find and replace
 Plug 'liuchengxu/vim-which-key'                     " List keybinds in a popup
+Plug 'junegunn/gv.vim'                              " Git log viewer
+Plug 'matze/vim-move'                               " Move selection up or down
 
 call plug#end()
 
@@ -66,6 +68,9 @@ hi ColorColumn guibg=darkred
 " ----------------------- "
 " |   PLUGIN SETTINGS   | "
 " ----------------------- "
+
+" vim-move
+let g:move_map_keys = 0
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1   " always show tabs at top
@@ -146,6 +151,28 @@ source ~/.config/nvim/monkeyterminal.vim
 
 " which key popup
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+" vim-move
+vmap <C-Down> <Plug>MoveBlockDown
+vmap <C-Up> <Plug>MoveBlockUp
+vmap <C-Left> <Plug>MoveBlockLeft
+vmap <C-Right> <Plug>MoveBlockRight
+
+nmap <C-Down> <Plug>MoveLineDown
+nmap <C-Up> <Plug>MoveLineUp
+nmap <C-Left> <Plug>MoveCharLeft
+nmap <C-Right> <Plug>MoveCharRight
+
+" vim log
+nnoremap <Leader>g :GV<CR>
+" current file
+nnoremap <Leader>gf :GV!<CR>
+" current line
+nnoremap <Leader>gl :GV?<CR>
+vnoremap <Leader>gl :GV?<CR>
+
+" yank history
+nnoremap <silent> <Leader>y  :<C-u>CocList -A --normal yank<cr>
 
 " Clang switch between header and source with leader s
 nnoremap <Leader>s :CocCommand clangd.switchSourceHeader<CR>
