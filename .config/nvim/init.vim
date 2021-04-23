@@ -31,7 +31,6 @@ Plug 'brooth/far.vim'                               " Global find and replace
 Plug 'liuchengxu/vim-which-key'                     " List keybinds in a popup
 Plug 'junegunn/gv.vim'                              " Git log viewer
 Plug 'matze/vim-move'                               " Move selection up or down
-
 call plug#end()
 
 " -------------------- "
@@ -42,6 +41,7 @@ colorscheme dracula
 colors dracula
 hi Normal ctermbg=NONE guibg=NONE
 
+set nowrap                  " disable text wrapping
 set t_Co=256                " term color mode
 set termguicolors           " required for dracula
 set undofile                " turn on persistent undo history
@@ -153,15 +153,15 @@ source ~/.config/nvim/monkeyterminal.vim
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " vim-move
-vmap <C-Down> <Plug>MoveBlockDown
-vmap <C-Up> <Plug>MoveBlockUp
-vmap <C-Left> <Plug>MoveBlockLeft
-vmap <C-Right> <Plug>MoveBlockRight
+vmap <A-Down> <Plug>MoveBlockDown
+vmap <A-Up> <Plug>MoveBlockUp
+vmap <A-Left> <Plug>MoveBlockLeft
+vmap <A-Right> <Plug>MoveBlockRight
 
-nmap <C-Down> <Plug>MoveLineDown
-nmap <C-Up> <Plug>MoveLineUp
-nmap <C-Left> <Plug>MoveCharLeft
-nmap <C-Right> <Plug>MoveCharRight
+nmap <A-Down> <Plug>MoveLineDown
+nmap <A-Up> <Plug>MoveLineUp
+nmap <A-Left> <Plug>MoveCharLeft
+nmap <A-Right> <Plug>MoveCharRight
 
 " vim log
 nnoremap <Leader>g :GV<CR>

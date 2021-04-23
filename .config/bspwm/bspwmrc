@@ -7,7 +7,7 @@ xset -dpms
 xsetroot -cursor_name left_ptr
 wmname LG3D
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d 一 二 三 四 五 六 七 八 九 十
 
 bspc config border_width         2
 bspc config window_gap           8
@@ -25,8 +25,10 @@ bspc rule -a Hudkit border=off
 bspc rule -a hudkit border=off
 bspc rule -a parser border=off
 bspc rule -a cactbot border=off
-bspc rule -a 'steam_proton:advanced combat tracker.exe' desktop=X
+bspc rule -a 'steam_proton:advanced combat tracker.exe' desktop=十
+bspc rule -a 'steam_app_39210:advanced combat tracker.exe' desktop=十
 
+"advanced combat tracker.exe", "steam_app_39210"
 run_startup() {
 	if [ -z "$2" ]; then
 		pgrep -x "$1" > /dev/null || $1 &
