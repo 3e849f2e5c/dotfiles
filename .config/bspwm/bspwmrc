@@ -28,7 +28,10 @@ bspc rule -a cactbot border=off
 bspc rule -a 'steam_proton:advanced combat tracker.exe' desktop=十
 bspc rule -a 'steam_app_39210:advanced combat tracker.exe' desktop=十
 
-"advanced combat tracker.exe", "steam_app_39210"
+
+key-mapper-control --command autoload
+
+#"advanced combat tracker.exe", "steam_app_39210"
 run_startup() {
 	if [ -z "$2" ]; then
 		pgrep -x "$1" > /dev/null || $1 &
@@ -64,3 +67,6 @@ run_startup "lxpolkit"
 
 # light locker
 run_startup "light-locker"
+
+# razer software
+run_startup "polychromatic-tray-applet"

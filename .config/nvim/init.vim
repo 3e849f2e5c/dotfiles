@@ -1,5 +1,4 @@
 call plug#begin()
-
 Plug 'dracula/vim', { 'as': 'dracula' }             " Color scheme
 Plug 'vim-airline/vim-airline'                      " Bottom status bar
 Plug 'preservim/nerdtree'                           " File explorer
@@ -31,6 +30,7 @@ Plug 'brooth/far.vim'                               " Global find and replace
 Plug 'liuchengxu/vim-which-key'                     " List keybinds in a popup
 Plug 'junegunn/gv.vim'                              " Git log viewer
 Plug 'matze/vim-move'                               " Move selection up or down
+"Plug 'skywind3000/vim-quickui'                      
 call plug#end()
 
 " -------------------- "
@@ -69,6 +69,8 @@ hi ColorColumn guibg=darkred
 " |   PLUGIN SETTINGS   | "
 " ----------------------- "
 
+command! -nargs=0 ShowDocumentation :call <SID>show_documentation()
+
 " vim-move
 let g:move_map_keys = 0
 
@@ -89,7 +91,7 @@ let g:rainbow_conf = {
 " Vimade
 
 let g:vimade = {
-  \ "fadelevel": 0.6,
+\ "fadelevel": 0.6,
 \}
 
 " Ranger + NERDTree 
@@ -130,6 +132,7 @@ let g:startify_lists = [
           \ { 'type': 'files',     'header': ['   Files']           },
           \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
           \ ]
+
 
 " ----------------------------- "
 " |    FUNCTIONS & ALIASES    | "
@@ -196,15 +199,11 @@ command! -nargs=0 Format  :call CocAction('format')
 nnoremap <A-o>            :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 command! -nargs=0 Imports :call CocAction('runCommand', 'editor.action.organizeImport')
 
-" Paste file template
-nnoremap <Leader>ya       :call CocAction('runCommand', 'template.templateTop')<CR>
-nnoremap <Leader>yas      :CocList templates<CR>
-
 " Toggle color highlights
 nnoremap <Leader>c :CololorHighlight<CR>
 
 " Documentation popup
-nnoremap <silent>K :call <SID>show_documentation()<CR>
+nnoremap <silent><A-k> :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
